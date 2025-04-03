@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EPSS - Sourcing Tools</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      padding: 2rem;
+      margin: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .title-section {
+      text-align: center;
+      padding-top: 1rem;
+    }
+    .title-section h1 {
+      color: #0073b1;
+      margin: 0;
+    }
+    .title-section h2 {
+      font-weight: normal;
+      color: #444;
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 1rem;
+      background-color: #0073b1;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005885;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title-section">
+      <h1>EPSS</h1>
+      <h2>EPHunter Sourcing System</h2>
+    </div>
+
+    <label for="keyword">Keyword / Jabatan</label>
+    <input type="text" id="keyword" placeholder="Contoh: Finance Officer">
+
+    <label for="location">Lokasi</label>
+    <input type="text" id="location" placeholder="Contoh: Jakarta">
+
+    <label for="industry">Industri</label>
+    <select id="industry">
+      <option value="">-- Pilih Industri --</option>
+      <option>Akuntansi</option>
+      <option>Arsitektur & Perencanaan</option>
+      <option>Otomotif</option>
+      <option>Penerbangan & Dirgantara</option>
+      <option>Bahan Bangunan</option>
+      <option>Perlengkapan & Peralatan Bisnis</option>
+      <option>Layanan Bisnis</option>
+      <option>Kimia</option>
+      <option>Teknik Sipil</option>
+      <option>Komputer & Jaringan</option>
+      <option>Manajemen Pendidikan</option>
+      <option>E-Learning</option>
+      <option>Pendidikan Tinggi</option>
+      <option>Pendidikan Dasar/Menengah</option>
+      <option>Penelitian</option>
+      <option>Desain</option>
+      <option>Desain Grafis</option>
+      <option>Pertahanan & Ruang Angkasa</option>
+      <option>Layanan Lingkungan</option>
+      <option>Layanan Acara</option>
+      <option>Kantor Eksekutif</option>
+      <option>Layanan Fasilitas</option>
+      <option>Film & Produksi</option>
+      <option>Manufaktur Elektrikal & Elektronik</option>
+      <option>Produksi Makanan</option>
+      <option>Energi & Listrik</option>
+      <option>Kesehatan & Kebugaran</option>
+      <option>Rumah Sakit & Kesehatan</option>
+      <option>Sumber Daya Manusia</option>
+      <option>Teknologi Informasi & Layanan</option>
+      <option>Asuransi</option>
+      <option>Internet</option>
+      <option>Teknik Industri</option>
+      <option>Otomasi Industri</option>
+      <option>Manufaktur</option>
+      <option>Mesin</option>
+      <option>Hukum</option>
+      <option>Konsultasi Manajemen</option>
+      <option>Pemasaran & Periklanan</option>
+      <option>Pertambangan & Logam</option>
+      <option>Minyak & Energi</option>
+      <option>Organisasi Nirlaba</option>
+      <option>Outsourcing/Offshoring</option>
+      <option>Kemasan & Kontainer</option>
+      <option>Produk Kertas & Hutan</option>
+      <option>Farmasi</option>
+      <option>Plastik</option>
+      <option>Politik</option>
+      <option>Pelatihan & Coaching Profesional</option>
+      <option>Perangkat Lunak Komputer</option>
+      <option>Manufaktur Kereta Api</option>
+      <option>Ritel</option>
+      <option>Supermarket</option>
+      <option>Telekomunikasi</option>
+      <option>Transportasi/Trucking/Railroad</option>
+      <option>Energi Terbarukan & Lingkungan</option>
+      <option>Manufaktur Kapal</option>
+      <option>Keamanan & Investigasi</option>
+      <option>Rekrutmen & Staffing</option>
+      <option>Utilitas</option>
+      <option>Grosir</option>
+    </select>
+
+    <label for="experience">Tingkat Pengalaman</label>
+    <select id="experience">
+      <option value="">-- Pilih Tingkat Pengalaman --</option>
+      <option value="1">Blue Collar</option>
+      <option value="2">Staff</option>
+      <option value="3">Officer</option>
+      <option value="4">Assistant Manager</option>
+      <option value="5">Manager</option>
+      <option value="6">Senior Manager</option>
+      <option value="7">General Manager</option>
+      <option value="8">Executive</option>
+      <option value="9">Specialist</option>
+      <option value="10">Director</option>
+    </select>
+
+    <label for="company">Perusahaan</label>
+    <input type="text" id="company" placeholder="Contoh: Google" oninput="suggestCompany(this.value)">
+    <div id="company-suggestions" style="border: 1px solid #ccc; border-radius: 0.5rem; display: none; padding: 0.5rem; background: #fff; position: absolute; z-index: 999; max-height: 200px; overflow-y: auto;"></div>
+
+    <button type="button" onclick="searchLinkedIn()">Mulai Sourcing</button>
+  </div>
+
+  <script>
+    const companyList = [
+      "Google", "Microsoft", "Amazon", "Apple", "Facebook", "Netflix", "Tesla", "IBM", "Samsung", "Oracle",
+      "Intel", "Cisco", "Adobe", "Spotify", "Tokopedia", "Shopee", "Grab", "Traveloka", "Bukalapak", "GoTo",
+      "Unilever", "Nestle", "Danone", "BNI", "Mandiri", "BCA", "Telkom", "Indosat", "XL Axiata"
+    ];
+
+    function suggestCompany(input) {
+      const container = document.getElementById("company-suggestions");
+      container.innerHTML = "";
+      if (input.length < 2) {
+        container.style.display = "none";
+        return;
+      }
+      const suggestions = companyList.filter(c => c.toLowerCase().startsWith(input.toLowerCase()));
+      if (suggestions.length === 0) {
+        container.style.display = "none";
+        return;
+      }
+      suggestions.forEach(c => {
+        const div = document.createElement("div");
+        div.textContent = c;
+        div.style.padding = "4px 8px";
+        div.style.cursor = "pointer";
+        div.addEventListener("click", () => {
+          document.getElementById("company").value = c;
+          container.style.display = "none";
+        });
+        container.appendChild(div);
+      });
+      const rect = document.getElementById("company").getBoundingClientRect();
+      container.style.display = "block";
+      container.style.top = rect.bottom + window.scrollY + "px";
+      container.style.left = rect.left + window.scrollX + "px";
+      container.style.width = rect.width + "px";
+    }
+
+    function searchLinkedIn() {
+      const keyword = document.getElementById("keyword").value.trim();
+      const location = document.getElementById("location").value.trim();
+      const industry = document.getElementById("industry").value.trim();
+      const experience = document.getElementById("experience").value;
+      const company = document.getElementById("company").value.trim();
+
+      const booleanParts = [];
+      if (keyword) booleanParts.push(`"${keyword}"`);
+      if (industry) booleanParts.push(`"${industry}"`);
+      if (company) booleanParts.push(`"${company}"`);
+      if (location) booleanParts.push(`"${location}"`);
+
+      const query = encodeURIComponent(booleanParts.join(" AND "));
+      let url = `https://www.linkedin.com/search/results/people/?keywords=${query}`;
+      if (experience) url += `&seniorityLevel=${experience}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
